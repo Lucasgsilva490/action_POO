@@ -32,5 +32,8 @@ jobs:
       
     - name: Compliar Java
       run: mvn compile
+    
+    - name: Executar Java
+      run: java -cp target/classes org.examplo.Main
 
  
