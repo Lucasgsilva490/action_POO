@@ -43,7 +43,7 @@ jobs:
           tags: 1.0
           registry: docker.io
           dockerfile: dockerfile
-          username: Lucasgsilva490
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{secrets.dockerhub_user}}
+          password: ${{ secrets.dockerhub_password}}
 
  
