@@ -36,11 +36,15 @@ jobs:
     - name: Executar Java
       run: java -cp target/classes org.example.Main
       
+    - name: Calculando
+      id: calculo
+      run: |
+        echo "::set-output name=version_new::$(echo ${{github.run_number}} / 10)"
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Deploy docker image
       with:
           image: lucasgsilva490/aula_maven_ff
-          tags: ${{github.run_number}}
+          tags: ${{steps.calculo.output.version_new}}
           registry: docker.io
           dockerfile: dockerfile
           username: ${{secrets.dockerhub_user}}
